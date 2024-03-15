@@ -1,0 +1,58 @@
+H36M-TRAIN:
+    TYPE: ImageDataset
+    IMG_DIR: path_to/h36m
+    KEYPOINT_LIST: [25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 43]
+    DATASET_FILE: data/datasets/h36m_train_mosh.npz
+    PROHMR_PREDS_FILE : cache/prohmr/h36m_train_mosh.npz
+    PARE_PREDS_FILE   : cache/pare/h36m_train_mosh.npz
+COCO-TRAIN:
+    TYPE: ImageDataset
+    IMG_DIR: path_to/coco
+    DATASET_FILE: data/datasets/coco_train_eft.npz
+    PROHMR_PREDS_FILE : cache/prohmr/coco_train_eft.npz
+    PARE_PREDS_FILE : cache/pare/coco_train_eft.npz
+MPI-INF-TRAIN:
+    TYPE: ImageDataset
+    IMG_DIR: path_to/mpi_inf_3dhp
+    DATASET_FILE      : data/datasets/mpi_inf_3dhp_train_eft.npz
+    PROHMR_PREDS_FILE : cache/prohmr/mpi_inf_3dhp_train_eft.npz
+    PARE_PREDS_FILE   : cache/pare/mpi_inf_3dhp_train_eft.npz
+H36M-VAL-P2:
+    TYPE: ImageDataset
+    IMG_DIR: path_to/h36m
+    KEYPOINT_LIST: [25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 43]
+    DATASET_FILE      : data/datasets/h36m_val_p2.npz
+    PROHMR_PREDS_FILE : cache/prohmr/h36m_val_p2.npz
+    PARE_PREDS_FILE   : cache/pare/h36m_val_p2.npz
+COCO-VAL:
+    TYPE: ImageDataset
+    IMG_DIR: path_to/coco
+    DATASET_FILE      : data/datasets/coco_val.npz
+    PROHMR_PREDS_FILE : cache/prohmr/coco_val.npz
+    PARE_PREDS_FILE   : cache/pare/coco_val.npz
+
+### Test Datasets ###
+3DPW-TEST:
+    TYPE: ImageDataset
+    IMG_DIR: path_to/3DPW
+    KEYPOINT_LIST: [25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 43]
+    DATASET_FILE:  data/datasets/3dpw_test.npz
+    HMR2_PREDS_FILE : cache/hmr2b/3dpw_test.npz
+3DPW-TEST-VIDEO:
+    TYPE: BatchedImageDataset
+    IMG_DIR: path_to/3DPW
+    KEYPOINT_LIST: [25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 43]
+    DATASET_FILE: data/datasets/3dpw_test_video.pkl
+    HMR2_PREDS : cache/hmr2b/3dpw_test_video.pkl
+H36M-MULTIVIEW:
+    TYPE: BatchedImageDataset
+    IMG_DIR: path_to/h36m
+    DATASET_FILE: data/datasets/h36m_val_multiview.pkl
+    KEYPOINT_LIST: [25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 43]
+    HMR2_PREDS : cache/hmr2b/h36m_val_multiview.pkl
+MANNEQUIN:
+    TYPE: BatchedImageDataset
+    IMG_DIR: path_to/MannequinChallenge/frames
+    DATASET_FILE: data/datasets/mannequin.pkl
+    KEYPOINT_LIST: [25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 39, 41, 42, 43]
+    HMR2_PREDS : cache/hmr2b/mannequin.pkl

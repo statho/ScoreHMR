@@ -1,0 +1,8 @@
+smplx==0.1.28
+pyrender
+opencv-python
+yacs
+scikit-image
+einops
+ema_pytorch
+loguru

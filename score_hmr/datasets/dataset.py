@@ -1,0 +1,33 @@
+"""
+This file contains the defition of the base Dataset class.
+Code borrowed from
+https://github.com/nkolot/ProHMR/blob/master/prohmr/datasets/dataset.py
+"""
+
+
+class DatasetRegistration(type):
+    """
+    Metaclass for registering different datasets
+    """
+
+    def __init__(cls, name, bases, nmspc):
+        super().__init__(name, bases, nmspc)
+        if not hasattr(cls, "registry"):
+            cls.registry = dict()
+        cls.registry[name] = cls
+
+    # Metamethods, called on class objects:
+    def __iter__(cls):
+        return iter(cls.registry)
+
+    def __str__(cls):
+        return str(cls.registry)
+
+
+class Dataset(metaclass=DatasetRegistration):
+    """
+    Base Dataset class
+    """
+
+    def __init__(self, *args, **kwargs):
+        pass
