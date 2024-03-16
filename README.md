@@ -1,7 +1,7 @@
-# ScoreHMR - Score-Guided Human Mesh Recovery
+# ScoreHMR: Score-Guided Human Mesh Recovery
 
 Code repository for the paper:
-**Score-Guided Human Mesh Recovery**\
+**Score-Guided Diffusion for 3D Human Recovery**\
 [Anastasis Stathopoulos](https://statho.github.io/), [Ligong Han](https://phymhan.github.io/), [Dimitris Metaxas](https://people.cs.rutgers.edu/~dnm/)
 
 [![arXiv](https://img.shields.io/badge/arXiv-2305.20091-00ff00.svg)](https://arxiv.org/abs/2403.09623)  [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://statho.github.io/ScoreHMR/)
