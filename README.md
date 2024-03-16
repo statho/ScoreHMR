@@ -47,7 +47,7 @@ python demo_video.py \
 ## Evaluation
 The evaluation code is contained in `eval/`. We provide evaluation on 3 different settings with the following scripts:
 - `eval_keypoint_fitting.py` is used in single-frame model fitting evaluation as in Tables 1, 2 & 5 of the paper.
-- `eval_multiview.py` is used to evaluate the multi-view refienement as in Table 3 of the paper.
+- `eval_multiview.py` is used to evaluate the multi-view refinement as in Table 3 of the paper.
 - `eval_video.py` is used to evaluate ScoreHMR in temporal model fitting as in Table 4 of the paper.
 
 The evaluation code uses cached HMR 2.0 predictions, which can be downloaded from [here](https://drive.google.com/file/d/1m9lv9uDYosIVZ-u0R3GCy1J1wHYNVUMP/view?usp=sharing) or by running:
