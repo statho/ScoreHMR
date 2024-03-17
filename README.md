@@ -4,7 +4,7 @@ Code repository for the paper:
 **Score-Guided Diffusion for 3D Human Recovery**\
 [Anastasis Stathopoulos](https://statho.github.io/), [Ligong Han](https://phymhan.github.io/), [Dimitris Metaxas](https://people.cs.rutgers.edu/~dnm/)
 
-[![arXiv](https://img.shields.io/badge/arXiv-2305.20091-00ff00.svg)](https://arxiv.org/abs/2403.09623)  [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://statho.github.io/ScoreHMR/)
+[![arXiv](https://img.shields.io/badge/arXiv-2305.20091-00ff00.svg)](https://arxiv.org/abs/2403.09623)  [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://statho.github.io/ScoreHMR/)  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1WdEWaOyG0XHHZrlg2uX9XwECDKBX5dCn?usp=sharing)
 
 ![teaser](assets/teaser.jpg)
 
@@ -47,7 +47,7 @@ python demo_video.py \
 ## Evaluation
 The evaluation code is contained in `eval/`. We provide evaluation on 3 different settings with the following scripts:
 - `eval_keypoint_fitting.py` is used in single-frame model fitting evaluation as in Tables 1, 2 & 5 of the paper.
-- `eval_multiview.py` is used to evaluate the multi-view refienement as in Table 3 of the paper.
+- `eval_multiview.py` is used to evaluate the multi-view refinement as in Table 3 of the paper.
 - `eval_video.py` is used to evaluate ScoreHMR in temporal model fitting as in Table 4 of the paper.
 
 The evaluation code uses cached HMR 2.0 predictions, which can be downloaded from [here](https://drive.google.com/file/d/1m9lv9uDYosIVZ-u0R3GCy1J1wHYNVUMP/view?usp=sharing) or by running:
