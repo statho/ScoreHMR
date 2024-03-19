@@ -4,7 +4,7 @@ Code repository for the paper:
 **Score-Guided Diffusion for 3D Human Recovery**\
 [Anastasis Stathopoulos](https://statho.github.io/), [Ligong Han](https://phymhan.github.io/), [Dimitris Metaxas](https://people.cs.rutgers.edu/~dnm/)
 
-[![arXiv](https://img.shields.io/badge/arXiv-2305.20091-00ff00.svg)](https://arxiv.org/abs/2403.09623)  [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://statho.github.io/ScoreHMR/)  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1WdEWaOyG0XHHZrlg2uX9XwECDKBX5dCn?usp=sharing)
+[![arXiv](https://img.shields.io/badge/arXiv-2305.20091-00ff00.svg)](https://arxiv.org/abs/2403.09623)  [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://statho.github.io/ScoreHMR/)  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1WdEWaOyG0XHHZrlg2uX9XwECDKBX5dCn)
 
 ![teaser](assets/teaser.jpg)
 
@@ -36,7 +36,7 @@ python demo_image.py \
 
 
 ## Run demo on videos
-The following command will first run tracking with 4D-Humans and 2D keypoint detection with ViTPose, and then run temporal model fitting with ScoreHMR on the video specified with `--input_video`. It will create a video rendering of the reconstructed people in the folder specified by `--output_folder`. It will also save intermediate results from 4D-Humans and ViTPose.
+The following command will first run tracking with 4D-Humans and 2D keypoint detection with ViTPose, and then run temporal model fitting with ScoreHMR on the video specified with `--input_video`. It will create a video rendering of the reconstructed people in the folder specified by `--out_folder`. It will also save intermediate results from 4D-Humans and ViTPose.
 ```bash
 python demo_video.py \
     --input_video example_data/videos/breakdancing.mp4 \

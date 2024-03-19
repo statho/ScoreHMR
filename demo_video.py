@@ -16,6 +16,7 @@ from score_hmr.utils.mesh_renderer import MeshRenderer
 warnings.filterwarnings('ignore')
 
 
+LIGHT_BLUE=(0.65098039,  0.74117647,  0.85882353)
 NUM_SAMPLES = 1
 
 
@@ -23,7 +24,8 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--input_video", type=str, default="example_data/breakdancing.mp4", help="Path of the input video.")
     parser.add_argument("--out_folder", type=str, default="demo_out/videos", help="Path to save the output video.")
-    parser.add_argument("--overwrite", action="store_true", default=False, help="Indicate whether or not to overwrite the 4D-Human tracklets.")
+    parser.add_argument("--overwrite", action="store_true", default=False, help="If set, overwrite the 4D-Human tracklets.")
+    parser.add_argument('--save_mesh', action='store_true', default=False, help='If set, save meshes to disk.')
     parser.add_argument("--fps", type=int, default=30, help="Frame rate to save the output video.")
     args = parser.parse_args()
 
@@ -164,6 +166,19 @@ def main():
             smpl_out = diffusion_model.smpl(**pred_smpl_params, pose2rot=False)
             pred_cam_t_all[track_idx, start_idx:end_idx] = dm_out['camera_translation'].cpu()
             pred_vertices_all[track_idx, start_idx:end_idx] = smpl_out.vertices.cpu()
+
+            # Save meshes as OBJ files.
+            if args.save_mesh:
+                verts = smpl_out.vertices.cpu().numpy()
+                cam_t = dm_out['camera_translation'].cpu().numpy()
+                person_id = str(batch['track_id'].item()).zfill(3)
+                tmesh_path = f"{OUT_DIR}/mesh_output/{filename}/{person_id}"
+                print(f'=> Saving mesh files for {person_id} in {tmesh_path}')
+                os.makedirs(tmesh_path, exist_ok=True)
+                for ii, (vvv, ttt) in enumerate(zip(verts, cam_t)):
+                    tmesh = renderer.vertices_to_trimesh(vvv, ttt, LIGHT_BLUE)
+                    frame_id = str(ii + start_idx + 1).zfill(6)
+                    tmesh.export(f'{tmesh_path}/{frame_id}.obj')
 
 
         # Save output video.
