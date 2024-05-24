@@ -22,7 +22,7 @@ NUM_SAMPLES = 1
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--input_video", type=str, default="example_data/breakdancing.mp4", help="Path of the input video.")
+    parser.add_argument("--input_video", type=str, default="example_data/videos/breakdancing.mp4", help="Path of the input video.")
     parser.add_argument("--out_folder", type=str, default="demo_out/videos", help="Path to save the output video.")
     parser.add_argument("--overwrite", action="store_true", default=False, help="If set, overwrite the 4D-Human tracklets.")
     parser.add_argument('--save_mesh', action='store_true', default=False, help='If set, save meshes to disk.')
