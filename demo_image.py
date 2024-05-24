@@ -2,6 +2,7 @@ import os
 import cv2
 import torch
 import argparse
+import shutil
 import numpy as np
 from pathlib import Path
 import warnings
@@ -29,6 +30,9 @@ def main():
 
     # Download and load checkpoints.
     download_models(CACHE_DIR_4DHUMANS)
+    # Copy SMPL model to the appropriate path for HMR 2.0 if it does not exist.
+    if not os.path.isfile(f'{CACHE_DIR_4DHUMANS}/data/smpl/SMPL_NEUTRAL.pkl'):
+        shutil.copy('data/smpl/SMPL_NEUTRAL.pkl', f'{CACHE_DIR_4DHUMANS}/data/smpl/')
     hmr2_model, model_cfg_hmr2 = load_hmr2(DEFAULT_CHECKPOINT)
 
     # Setup HMR2.0 model.

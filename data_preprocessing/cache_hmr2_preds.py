@@ -1,6 +1,7 @@
 import os
 import torch
 import argparse
+import shutil
 import numpy as np
 from hmr2.datasets import create_dataset
 from hmr2.configs import CACHE_DIR_4DHUMANS
@@ -26,6 +27,9 @@ dataset_cfg = dataset_config()
 
 # Load HMR 2.0b.
 download_models(CACHE_DIR_4DHUMANS)
+# Copy SMPL model to the appropriate path for HMR 2.0 if it does not exist.
+if not os.path.isfile(f'{CACHE_DIR_4DHUMANS}/data/smpl/SMPL_NEUTRAL.pkl'):
+    shutil.copy('data/smpl/SMPL_NEUTRAL.pkl', f'{CACHE_DIR_4DHUMANS}/data/smpl/')
 model, model_cfg = load_hmr2(DEFAULT_CHECKPOINT)
 model = model.to(device)
 model.eval()

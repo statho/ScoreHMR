@@ -10,6 +10,7 @@ from typing import Optional, Tuple
 import os
 import hydra
 import torch
+import shutil
 import numpy as np
 from hydra.core.config_store import ConfigStore
 from omegaconf import DictConfig
@@ -20,6 +21,7 @@ from phalp.trackers.PHALP import PHALP
 from phalp.utils import get_pylogger
 from phalp.configs.base import CACHE_DIR
 
+from hmr2.configs import CACHE_DIR_4DHUMANS
 from hmr2.datasets.utils import expand_bbox_to_aspect_ratio
 from vitpose_model import ViTPoseModel
 
@@ -36,6 +38,9 @@ class HMR2Predictor(HMR2018Predictor):
 
         # Download and load checkpoints
         download_models()
+        # Copy SMPL model to the appropriate path for HMR 2.0 if it does not exist.
+        if not os.path.isfile(f'{CACHE_DIR_4DHUMANS}/data/smpl/SMPL_NEUTRAL.pkl'):
+            shutil.copy('data/smpl/SMPL_NEUTRAL.pkl', f'{CACHE_DIR_4DHUMANS}/data/smpl/')
         model, _ = load_hmr2()
 
         self.model = model
